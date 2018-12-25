@@ -1,5 +1,6 @@
 # swapi
-This project gives you my version of framework for testing star wars API (swapi). Website for this application is : https://swapi.co/ 
+I built a simple yet robust framework to test a RestWebservice using swapi application. With this project, I share that framework with you. 
+# Website for this application is : https://swapi.co/ 
 I build a framework to test this using RestAssured libray in IntelliJ using Java. 
 In the framework, the key components are:
   -> PROJECT CONFIGURATION CLASS: Keep a test environment file to maintain project configuration (You dont need it here, but generally in projects, you have more than 
