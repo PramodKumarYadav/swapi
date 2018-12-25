@@ -24,6 +24,6 @@ I use the inbuilt test reports options in IntelliJ to generate my log results in
 
 # VERSION CONTROL : 
 I use the inbuilt function in intelliJ to add a GIT repository for version control using (VCS -.GIT.). Once done, I push the changes to remote using command line to my github repository (https://github.com/PramodKumarYadav/swapi/)
-
-With all this, you have a solid framework that you can enhance upon to add sort of tests and functions that you want to build upon for testing Swapi. 
+ 
 # Happy learning! 
+With all this, you have a solid framework that you can enhance upon to add sort of tests and functions that you want to build upon for testing Swapi. Happy learning. 
