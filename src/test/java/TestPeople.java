@@ -41,9 +41,10 @@ public class TestPeople {
 
             // Use the JsonPath parsing library of RestAssured to Parse the JSON
             JsonPath jsonPath = new JsonPath(json);
+            System.out.println(jsonPath.prettyPeek());
 
             List<String> names = jsonPath.getList("results.name");
-            // System.out.println(names);
+            System.out.println(names);
 
             AllStarWarNames.addAll(names);
 

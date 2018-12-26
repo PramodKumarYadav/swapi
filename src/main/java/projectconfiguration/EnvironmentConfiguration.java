@@ -29,12 +29,12 @@ public class EnvironmentConfiguration {
                 break;
             case "ChainTest":
                 // Chain Test Configuration
-                Domain = "swapi.co.c1"; // This is dummy value. To be replaced with real value (when available)
+                Domain = "swapic1.co"; // This is dummy value. To be replaced with real value (when available)
                 SubDomain = "api";
                 break;
             case "PreProductionTest":
                 // Chain Test Configuration
-                Domain = "swapi.co.p1";
+                Domain = "swapip1.co";
                 SubDomain = "api";
                 break;
             default:

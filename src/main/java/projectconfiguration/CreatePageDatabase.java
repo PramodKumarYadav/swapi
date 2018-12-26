@@ -3,10 +3,9 @@ package projectconfiguration;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import org.junit.Test;
-import projectconfiguration.EnvironmentConfiguration;
-
 import static org.junit.Assert.assertEquals;
+import static projectconfiguration.FileStaticFunctions.canCreateFileAndWriteStringToFile;
+import static projectconfiguration.FileStaticFunctions.canReadFileLineByLine;
 
 import java.io.*;
 
@@ -63,29 +62,23 @@ public class CreatePageDatabase {
 
         }while (responseStatus == 200 );
 
-        System.out.println(System.lineSeparator() + "buildjsonDatabase : " );
+        System.out.println(System.lineSeparator() + "buildjsonDatabase : ");
         System.out.println(buildjsonDatabase );
 
-        // Write the database to test Data now
+        // Specify the path where you want to create this database
         String PageDataBaseLocation = EnvironmentConfiguration.TestDataLocation + "\\" + EnvironmentConfiguration.SelectTestEnvironment + "\\" + apiName + "PageDatabase.txt" ;
-        File PageDatabaseFile =  new File(PageDataBaseLocation);
-        FileWriter writer = new FileWriter(PageDatabaseFile);
-        writer.write(buildjsonDatabase);
-        writer.close();
+
+        // Write the database to test Data folder now
+        canCreateFileAndWriteStringToFile(PageDataBaseLocation,buildjsonDatabase);
 
         // Read the file to see if everything is written or not.
-        BufferedReader reader = new BufferedReader(new FileReader(PageDataBaseLocation));
-
-        String line;
-        System.out.println(System.lineSeparator() + "Reading each page from created database : " );
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
-        }
-        reader.close();
+        canReadFileLineByLine(PageDataBaseLocation);
 
         System.out.println("All Pages of " + apiName + " Database asserted. Everything OK. No need for detailed Tests." + System.lineSeparator());
         System.out.println("----------------------------------------------------------------------------------------");
     }
+
+
 
 }
 

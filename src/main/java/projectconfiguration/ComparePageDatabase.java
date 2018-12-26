@@ -1,10 +1,8 @@
 package projectconfiguration;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
-import org.junit.Test;
-import projectconfiguration.EnvironmentConfiguration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -53,10 +51,15 @@ public class ComparePageDatabase {
             String jsonStringActualPage = response.getBody().asString();
             System.out.println("jsonStringActualPage   : " + jsonStringActualPage);
 
+            JsonPath jsonPathActual = new JsonPath(jsonStringActualPage);
+
             String jsonStringExpectedPage = reader.readLine();
             System.out.println("jsonStringExpectedPage : " + jsonStringExpectedPage);
 
-            assertEquals(jsonStringExpectedPage,jsonStringActualPage);
+            JsonPath jsonPathExpected = new JsonPath(jsonStringExpectedPage);
+
+//            assertEquals(jsonStringExpectedPage,jsonStringActualPage);
+            assertEquals(jsonPathExpected.prettify(),jsonPathActual.prettify());
 
             pageNr = pageNr +1 ;
 
