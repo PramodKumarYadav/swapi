@@ -5,9 +5,6 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
@@ -33,7 +30,7 @@ public class CompareSinglePage {
         String apiURL = "";
         if (apiName.toString().trim().toLowerCase() == "api"){
             // If we are calling API Root
-            apiURL = swapiURL + "/" ;
+            apiURL = swapiURL + "/?format=json&page=" +pageNr ;
         }
         else {
             apiURL = swapiURL + "/" + apiName + "/?format=json&page=" +pageNr ;
