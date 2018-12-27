@@ -1,12 +1,10 @@
-package starwars.swapi.api;
+package starwars.swapi.api.pageleveltests;
 
 import org.junit.Test;
 import projectconfiguration.CompareSinglePage;
 import projectconfiguration.EnvironmentConfiguration;
 
 import java.io.IOException;
-
-import static projectconfiguration.FileStaticFunctions.canReturnALineBasedOnANumberFromAFile;
 
 public class TestSinglePageFilms {
 

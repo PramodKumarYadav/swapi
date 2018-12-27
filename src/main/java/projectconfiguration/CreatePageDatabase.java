@@ -16,25 +16,10 @@ public class CreatePageDatabase {
 
 //        String  apiName = "people";
         String buildjsonDatabase = "";
-
         int pageNr = 1;
 
-        EnvironmentConfiguration thisEnv = new EnvironmentConfiguration();
-        String swapiURL  =  thisEnv.getUrl();
-
-        String apiURL = "";
-        if (apiName.toString().trim().toLowerCase() == "api"){
-            // If we are calling API Root
-            apiURL = swapiURL + "/" ;
-        }
-        else {
-            apiURL = swapiURL + "/" + apiName + "/?format=json&page=" +pageNr ;
-        }
-
-        System.out.println(apiURL);
-
-        // use RestAssured to make an HTML Call
-        Response response = RestAssured.get(apiURL).thenReturn();
+        GetResponse getResponse = new GetResponse();
+        Response response = getResponse.canGiveResponse(apiName,pageNr);
 
         Integer responseStatus = response.getStatusCode();
         System.out.println("responseStatus : " + responseStatus);
@@ -43,8 +28,6 @@ public class CreatePageDatabase {
         assertEquals(Integer.valueOf(200),responseStatus);
 
         do {
-            System.out.println("Assert pageNr : " + pageNr);
-
             String jsonStringActualPage = response.getBody().asString();
             System.out.println(jsonStringActualPage);
 
@@ -52,11 +35,7 @@ public class CreatePageDatabase {
 
             pageNr = pageNr +1 ;
 
-            // use RestAssured to make an HTML Call
-            apiURL = swapiURL + "/" + apiName + "/?format=json&page=" +pageNr ;
-            System.out.println(apiURL);
-            response = RestAssured.get(apiURL).thenReturn();
-
+            response = getResponse.canGiveResponse(apiName,pageNr);
             responseStatus = response.getStatusCode();
             System.out.println("responseStatus : " + responseStatus);
 
@@ -77,8 +56,5 @@ public class CreatePageDatabase {
         System.out.println("All Pages of " + apiName + " Database asserted. Everything OK. No need for detailed Tests." + System.lineSeparator());
         System.out.println("----------------------------------------------------------------------------------------");
     }
-
-
-
 }
 

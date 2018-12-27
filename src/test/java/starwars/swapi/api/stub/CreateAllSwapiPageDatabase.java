@@ -1,4 +1,4 @@
-package starwars.swapi.api;
+package starwars.swapi.api.stub;
 
 import org.junit.Ignore;
 import org.junit.Test;

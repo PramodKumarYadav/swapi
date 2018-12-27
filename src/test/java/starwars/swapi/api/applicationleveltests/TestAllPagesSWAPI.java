@@ -1,4 +1,4 @@
-package starwars.swapi.api;
+package starwars.swapi.api.applicationleveltests;
 
 import org.junit.Test;
 import projectconfiguration.CompareAllPages;

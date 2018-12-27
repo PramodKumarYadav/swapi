@@ -1,4 +1,4 @@
-package starwars.swapi.api.HighPageLevelTests;
+package starwars.swapi.api.sandboxtests;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 
-public class PlanetsHighPageLevelTest {
+public class PeopleHighPageLevelTest {
 
     @Test
-    public void canAssertAllPlanetPagesForSwapiAPI() throws IOException {
+    public void canAssertAllPeoplePagesForSwapiAPI() throws IOException {
 
-        String  apiName = "planets";
+        String  apiName = "people";
 
         int pageNr = 1;
 
@@ -32,20 +32,20 @@ public class PlanetsHighPageLevelTest {
         assertEquals(Integer.valueOf(200),responseStatus);
 
         // Step 02: Parse the expectedPageDatabase into bufferedReader (so that we can iterate it page by page)
-        String planetsDatabase = thisEnv.getplanetsPageDatabaseLocation();
-        File PlanetsPageDatabaseFile =  new File(planetsDatabase);
-        BufferedReader reader = new BufferedReader(new FileReader(PlanetsPageDatabaseFile));
+        String peopleDatabase = thisEnv.getpeoplePageDatabaseLocation();
+        File PeoplePageDatabaseFile =  new File(peopleDatabase);
+        BufferedReader reader = new BufferedReader(new FileReader(PeoplePageDatabaseFile));
 
         do {
             System.out.println("Assert pageNr : " + pageNr);
 
-            String jsonStringActualPlanetsPage = response.getBody().asString();
-            System.out.println("jsonStringActualPeoplePage   : " + jsonStringActualPlanetsPage);
+            String jsonStringActualPeoplePage = response.getBody().asString();
+            System.out.println("jsonStringActualPeoplePage   : " + jsonStringActualPeoplePage);
 
-            String jsonStringExpectedPlanetsPage = reader.readLine();
-            System.out.println("jsonStringExpectedPeoplePage : " + jsonStringExpectedPlanetsPage);
+            String jsonStringExpectedPeoplePage = reader.readLine();
+            System.out.println("jsonStringExpectedPeoplePage : " + jsonStringExpectedPeoplePage);
 
-            assertEquals(jsonStringExpectedPlanetsPage,jsonStringActualPlanetsPage);
+            assertEquals(jsonStringExpectedPeoplePage,jsonStringActualPeoplePage);
 
             pageNr = pageNr +1 ;
 
@@ -60,6 +60,7 @@ public class PlanetsHighPageLevelTest {
         reader.close();
         System.out.println("All Pages of " + apiName + " Database asserted. Everything OK. No need for detailed Tests." + System.lineSeparator());
         System.out.println("----------------------------------------------------------------------------------------");
+
     }
 
 }

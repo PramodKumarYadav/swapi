@@ -1,17 +1,12 @@
-package starwars.swapi.api;
+package starwars.swapi.api.sandboxtests;
 
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import org.junit.Test;
-import projectconfiguration.EnvironmentConfiguration;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
