@@ -1,6 +1,7 @@
 package projectconfiguration;
 
 import net.bytebuddy.description.field.FieldDescription;
+import org.junit.Test;
 
 import java.io.*;
 

@@ -21,8 +21,12 @@ public class GetResponse {
 
         String apiURL = "";
         if (apiName.toString().trim().toLowerCase() == "api"){
-            // If we are calling API Root
-            apiURL = swapiURL + "/?format=json&page=" +pageNr ;
+            // Due to a bug in this API for pageNr
+            if (pageNr == 1) {
+                apiURL = swapiURL + "/?format=json&page=" + pageNr;
+            } else {
+                apiURL = swapiURL + "/" + apiName + "/?format=json&page=" +pageNr ;
+            }
         }
         else {
             apiURL = swapiURL + "/" + apiName + "/?format=json&page=" +pageNr ;
