@@ -36,7 +36,7 @@ public class TestSinglePageVehicles {
         compareSinglePage.canCompareAnySingleAPIPage("vehicles",thisEnv.getvehiclesPageDatabaseLocation(),5);
     }
     @Test
-    public void canTestVehiclesPage06() throws IOException {
+    public void canTestVehiclesPage07() throws IOException {
         compareSinglePage.canCompareAnySingleAPIPage("vehicles",thisEnv.getvehiclesPageDatabaseLocation(),5);
     }
 
